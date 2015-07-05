@@ -1,0 +1,15 @@
+---
+language:     ruby
+cache:        bundler
+bundler_args: --without metrics
+rvm:
+  - '2.1'
+  - '2.2'
+  - ruby-head
+  - rbx-2 --2.1
+  - jruby-9.0.0.0.pre2
+  - jruby-head
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head

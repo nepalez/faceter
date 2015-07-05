@@ -1,0 +1,3 @@
+--asset LICENSE
+--exclude lib/faceter/version.rb
+--output doc/api
