@@ -3,6 +3,7 @@
 require "transproc/conditional"
 require "transproc/hash"
 require "transproc/array"
+require "transproc/recursion"
 
 module Faceter
 
@@ -16,6 +17,8 @@ module Faceter
 
     import Transproc::HashTransformations
     import Transproc::ArrayTransformations
+    import Transproc::Conditional
+    import Transproc::Recursion
 
   end # module Functions
 

@@ -9,6 +9,7 @@ require_relative "faceter/functions/reverse"
 require_relative "faceter/functions/split"
 require_relative "faceter/functions/check"
 require_relative "faceter/functions/keep_symbol"
+require_relative "faceter/functions/transform_hash"
 require_relative "faceter/functions/add_prefix"
 
 # Load specific AST nodes
