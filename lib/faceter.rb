@@ -10,6 +10,7 @@ require_relative "faceter/functions/split"
 
 # Load specific AST nodes
 require_relative "faceter/nodes/list"
+require_relative "faceter/nodes/field"
 
 # ROM-compatible data mapper
 #
