@@ -15,6 +15,7 @@ require_relative "faceter/functions/add_prefix"
 # Load specific AST nodes
 require_relative "faceter/nodes/list"
 require_relative "faceter/nodes/field"
+require_relative "faceter/nodes/add_prefix"
 
 # ROM-compatible data mapper
 #
