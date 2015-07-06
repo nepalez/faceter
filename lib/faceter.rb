@@ -8,6 +8,9 @@ require_relative "faceter/functions/sub"
 require_relative "faceter/functions/reverse"
 require_relative "faceter/functions/split"
 
+# Load specific AST nodes
+require_relative "faceter/nodes/list"
+
 # ROM-compatible data mapper
 #
 module Faceter
