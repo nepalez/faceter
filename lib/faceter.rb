@@ -7,6 +7,7 @@ require_relative "faceter/functions"
 require_relative "faceter/functions/sub"
 require_relative "faceter/functions/reverse"
 require_relative "faceter/functions/split"
+require_relative "faceter/functions/check"
 
 # Load specific AST nodes
 require_relative "faceter/nodes/list"
