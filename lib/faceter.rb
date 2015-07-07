@@ -11,6 +11,7 @@ require_relative "faceter/functions/check"
 require_relative "faceter/functions/keep_symbol"
 require_relative "faceter/functions/transform_hash"
 require_relative "faceter/functions/add_prefix"
+require_relative "faceter/functions/drop_prefix"
 
 # Load specific AST nodes
 require_relative "faceter/nodes/list"
