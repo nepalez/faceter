@@ -17,6 +17,7 @@ require_relative "faceter/functions/drop_prefix"
 require_relative "faceter/nodes/list"
 require_relative "faceter/nodes/field"
 require_relative "faceter/nodes/add_prefix"
+require_relative "faceter/nodes/remove_prefix"
 
 # ROM-compatible data mapper
 #
