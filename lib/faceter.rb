@@ -22,6 +22,7 @@ require_relative "faceter/nodes/add_prefix"
 require_relative "faceter/nodes/remove_prefix"
 require_relative "faceter/nodes/stringify_keys"
 require_relative "faceter/nodes/symbolize_keys"
+require_relative "faceter/nodes/create"
 
 # ROM-compatible data mapper
 #

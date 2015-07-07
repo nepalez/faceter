@@ -20,7 +20,8 @@ module Faceter
     import Transproc::Conditional
     import Transproc::Recursion
 
-    import :guard, from: Transproc::Conditional
+    import :guard,    from: Transproc::Conditional
+    import :identity, from: AbstractMapper::Functions
 
   end # module Functions
 
