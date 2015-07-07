@@ -25,6 +25,7 @@ require_relative "faceter/nodes/symbolize_keys"
 require_relative "faceter/nodes/create"
 require_relative "faceter/nodes/exclude"
 require_relative "faceter/nodes/rename"
+require_relative "faceter/nodes/fold"
 
 # ROM-compatible data mapper
 #
