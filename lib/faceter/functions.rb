@@ -4,6 +4,7 @@ require "transproc/conditional"
 require "transproc/hash"
 require "transproc/array"
 require "transproc/recursion"
+require "transproc/coercions"
 
 module Faceter
 

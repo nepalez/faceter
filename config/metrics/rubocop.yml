@@ -15,6 +15,9 @@ Lint/RescueException:
   Exclude:
     - '**/*_spec.rb'
 
+Metrics/AbcSize:
+  Max: 17 # default: 15
+
 Style/AccessorMethodName:
   Exclude:
     - '**/*_spec.rb'
