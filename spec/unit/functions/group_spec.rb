@@ -17,6 +17,20 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
+    let(:arguments) { [:group, :baz, except: :qux] }
+
+    let(:input) do
+      [{ foo: :FOO, bar: :FOO, qux: :QUX }, { foo: :BAR, bar: :BAR, qux: :QUX }]
+    end
+
+    let(:output) do
+      [
+        { qux: :QUX, baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }] }
+      ]
+    end
+  end
+
+  it_behaves_like :transforming_immutable_data do
     let(:arguments) { [:group, :baz, only: [:foo, :bar]] }
 
     let(:input) do
@@ -135,6 +149,18 @@ describe Faceter::Functions, ".group" do
           ]
         }
       ]
+    end
+  end
+
+  it_behaves_like :transforming_immutable_data do
+    let(:arguments) { [:group, :baz, only: :quxx] }
+
+    let(:input) do
+      [{ foo: :FOO, bar: :FOO, qux: :QUX }, { foo: :BAR, bar: :BAR, qux: :QUX }]
+    end
+
+    let(:output) do
+      [{ foo: :FOO, bar: :FOO, qux: :QUX }, { foo: :BAR, bar: :BAR, qux: :QUX }]
     end
   end
 

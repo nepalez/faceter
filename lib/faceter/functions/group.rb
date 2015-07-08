@@ -9,7 +9,7 @@ module Faceter
     # Groups array values using provided root key and options
     #
     # @example
-    #   fn = Functions[:group, :qux, only: [:tag_name]]
+    #   fn = Functions[:group, :qux, only: [:bar]]
     #   fn[[{ foo: :FOO, bar: :BAR }, { foo: :FOO, bar: :BAZ }]]
     #   # => [{ foo: :FOO, qux: [{ bar: :BAR }, { bar: :BAZ }] }]
     #
@@ -32,7 +32,10 @@ module Faceter
         tuples[to_keep] << grouped.map { |item| item.merge(to_group) }
       end
 
-      tuples.map { |root, children| root.merge(key => children.flatten) }
+      tuples.map do |root, children|
+        list = children.flatten
+        list.first.empty? ? root : root.merge(key => list)
+      end
     end
 
   end # module Functions
