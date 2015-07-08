@@ -31,6 +31,7 @@ require_relative "faceter/nodes/rename"
 require_relative "faceter/nodes/fold"
 require_relative "faceter/nodes/unfold"
 require_relative "faceter/nodes/wrap"
+require_relative "faceter/nodes/unwrap"
 
 # ROM-compatible data mapper
 #
