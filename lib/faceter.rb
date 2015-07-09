@@ -37,6 +37,9 @@ require_relative "faceter/nodes/unwrap"
 require_relative "faceter/nodes/group"
 require_relative "faceter/nodes/ungroup"
 
+# Load the gem-specific base mapper
+require_relative "faceter/mapper"
+
 # ROM-compatible data mapper
 #
 module Faceter
