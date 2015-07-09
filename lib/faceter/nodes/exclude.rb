@@ -24,8 +24,7 @@ module Faceter
 
       # @private
       def initialize(*keys, **options)
-        @blacklist = keys.any? ? keys.flatten : Array[*options[:only]]
-        @whitelist = Array[*options[:except]]
+        @options = (keys.any? ? { only: keys.flatten } : {}).update(options)
         super
       end
 
@@ -34,11 +33,7 @@ module Faceter
       # @return [Transproc::Function]
       #
       def transproc
-        if @whitelist.any?
-          Functions[:accept_keys, @whitelist]
-        else
-          Functions[:reject_keys, @blacklist]
-        end
+        Functions[:exclude, @options]
       end
 
     end # class Exclude
