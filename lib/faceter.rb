@@ -18,6 +18,7 @@ require_relative "faceter/functions/wrap"
 require_relative "faceter/functions/clean"
 require_relative "faceter/functions/unwrap"
 require_relative "faceter/functions/group"
+require_relative "faceter/functions/ungroup"
 
 # Load specific AST nodes
 require_relative "faceter/nodes/list"
