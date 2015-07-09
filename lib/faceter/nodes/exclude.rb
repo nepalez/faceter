@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Exclude < AbstractMapper::Node
+    class Exclude < Optional
 
       # @!scope class
       # @!method new(*keys)
@@ -21,12 +21,6 @@ module Faceter
       # @option (see Faceter::Functions.reverse)
       #
       # @return [Faceter::Nodes::Exclude]
-
-      # @private
-      def initialize(*keys, **options)
-        @options = (keys.any? ? { only: keys.flatten } : {}).update(options)
-        super
-      end
 
       # Transformer function, defined by the node
       #

@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Group < AbstractMapper::Node
+    class Group < Optional
 
       # @!scope class
       # @!method new(*keys, options)
@@ -25,7 +25,6 @@ module Faceter
 
       # @private
       def initialize(*keys, **options)
-        @options = (keys.any? ? { only: keys } : {}).update(options)
         @key = options.fetch(:to)
         super
       end
