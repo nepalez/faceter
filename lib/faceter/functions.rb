@@ -18,11 +18,12 @@ module Faceter
 
     import Transproc::HashTransformations
     import Transproc::ArrayTransformations
-    import Transproc::Conditional
-    import Transproc::Recursion
 
-    import :guard,    from: Transproc::Conditional
-    import :identity, from: AbstractMapper::Functions
+    import :guard,     from: Transproc::Conditional
+    import :identity,  from: AbstractMapper::Functions
+    import :is,        from: Transproc::Conditional
+    import :recursion, from: Transproc::Recursion
+    import :to_tuples, from: Transproc::Coercions
 
   end # module Functions
 

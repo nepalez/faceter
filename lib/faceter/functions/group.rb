@@ -4,8 +4,6 @@ module Faceter
 
   module Functions
 
-    import :to_tuples, from: Transproc::Coercions
-
     # Groups array values using provided root key and options
     #
     # @example
