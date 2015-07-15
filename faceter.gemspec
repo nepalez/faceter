@@ -22,5 +22,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "hexx-rspec", "~> 0.4"
   gem.add_development_dependency "rom", "~> 0.8"
+  gem.add_development_dependency "benchmark-ips", "~> 2.2"
 
 end # Gem::Specification
