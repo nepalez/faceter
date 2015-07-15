@@ -1,6 +1,7 @@
 ---
 language:     ruby
 cache:        bundler
+script:       bundle exec rake test:coverage:run
 bundler_args: --without metrics
 rvm:
   - '2.1'

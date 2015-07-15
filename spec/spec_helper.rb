@@ -13,6 +13,7 @@ require "faceter"
 
 # Loads shared examples
 require "abstract_mapper/rspec"
+require "transproc/rspec"
 
 # Creates the temporary Test module for test-specific constants
 RSpec.configure do |config|
