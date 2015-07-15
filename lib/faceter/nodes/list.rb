@@ -10,6 +10,11 @@ module Faceter
     #
     class List < AbstractMapper::Branch
 
+      # @private
+      def initialize
+        super
+      end
+
       # Builds a transproc function for the node from its child nodes
       #
       # @return [Transproc::Function]
