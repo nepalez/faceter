@@ -27,8 +27,8 @@ module Faceter
       whitelist = options.fetch(:only, nil)
       blacklist = options.fetch(:except, nil)
 
-      return accept_keys(hash, Array[*whitelist]) if whitelist
-      reject_keys(hash, Array[*blacklist])
+      return t(:accept_keys, Array[*whitelist])[hash] if whitelist
+      t(:reject_keys, Array[*blacklist])[hash]
     end
 
   end # module Functions
