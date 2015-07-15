@@ -13,6 +13,12 @@ module Faceter
     #
     class TransformKeys < AbstractMapper::Node
 
+      # @!attribute [r] nested
+      #
+      # @return [Boolean] Whether the transformation applied to nested levels
+      #
+      attr_reader :nested
+
       # @private
       def initialize(**options)
         @options = options

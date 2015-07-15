@@ -13,12 +13,18 @@ module Faceter
     #
     class ChangePrefix < AbstractMapper::Node
 
+      # @!attribute [r] nested
+      #
+      # @return [Boolean] Whether the transformation applied to nested levels
+      #
+      attr_reader :nested
+
       # @private
       def initialize(prefix, **options)
         @prefix    = prefix
         @options   = options
         @separator = options.fetch(:separator) { "_" }
-        @nested    = options[:nested]
+        @nested    = options.fetch(:nested) { false }
         super
       end
 
