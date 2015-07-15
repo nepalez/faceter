@@ -26,6 +26,9 @@ module Faceter
       command :unwrap,         Nodes::Unwrap
       command :wrap,           Nodes::Wrap
 
+      # List of optimization rules
+      rule Rules::MergeBranches
+
     end
   end # class Mapper
 

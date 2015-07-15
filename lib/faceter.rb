@@ -42,6 +42,9 @@ require_relative "faceter/nodes/unwrap"
 require_relative "faceter/nodes/group"
 require_relative "faceter/nodes/ungroup"
 
+# Load specific optimization rules
+require_relative "faceter/rules/merge_branches"
+
 # Load the gem-specific base mapper
 require_relative "faceter/mapper"
 
