@@ -9,8 +9,8 @@ describe Faceter::Nodes::SymbolizeKeys do
   it_behaves_like :mapping_immutable_input do
     let(:attributes) { [] }
 
-    let(:input)  { { 1 => :FOO }    }
-    let(:output) { { :"1" => :FOO } }
+    let(:input)  { { 1 => :FOO } }
+    let(:output) { { "1": :FOO } }
   end
 
   it_behaves_like :mapping_immutable_input do
