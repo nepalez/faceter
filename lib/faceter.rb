@@ -45,6 +45,7 @@ require_relative "faceter/nodes/ungroup"
 # Load specific optimization rules
 require_relative "faceter/rules/merge_branches"
 require_relative "faceter/rules/prepend_nested"
+require_relative "faceter/rules/append_nested"
 
 # Load the gem-specific base mapper
 require_relative "faceter/mapper"

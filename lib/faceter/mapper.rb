@@ -28,6 +28,7 @@ module Faceter
 
       # List of optimization rules
       rule Rules::PrependNested
+      rule Rules::AppendNested
       rule Rules::MergeBranches
 
     end
