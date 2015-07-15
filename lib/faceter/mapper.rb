@@ -27,6 +27,7 @@ module Faceter
       command :wrap,           Nodes::Wrap
 
       # List of optimization rules
+      rule Rules::PrependNested
       rule Rules::MergeBranches
 
     end
