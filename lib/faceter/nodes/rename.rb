@@ -9,23 +9,19 @@ module Faceter
     class Rename < AbstractMapper::Node
 
       # @!scope class
-      # @!method new(key, options)
+      # @!method new(hash)
       # Creates the node
       #
       # @example
-      #   Rename.new :bar, to: :foo
+      #   Rename.new(bar: :foo, baz: :qux)
       #
-      # @param [Object] key The old name of the field to be renamed
-      # @param [Hash] options
-      #
-      # @option options [Object] :to The new name of the field
+      # @param [Hash] hash List of renamings
       #
       # @return [Faceter::Nodes::Rename]
 
       # @private
-      def initialize(key, **options)
-        @key  = key
-        @name = options.fetch(:to)
+      def initialize(hash)
+        @hash = hash
         super
       end
 
@@ -34,7 +30,7 @@ module Faceter
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:rename_keys, @key => @name]
+        Functions[:rename_keys, @hash]
       end
 
     end # class Rename

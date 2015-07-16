@@ -18,7 +18,9 @@ module Faceter
       command :group,          Nodes::Group
       command :list,           Nodes::List
       command :remove_prefix,  Nodes::RemovePrefix
-      command :rename,         Nodes::Rename
+      command :rename,         Nodes::Rename do |name, options|
+        [name => options.fetch(:to)]
+      end
       command :stringify_keys, Nodes::StringifyKeys
       command :symbolize_keys, Nodes::SymbolizeKeys
       command :unfold,         Nodes::Unfold
