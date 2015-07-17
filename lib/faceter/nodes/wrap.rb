@@ -25,7 +25,7 @@ module Faceter
 
       # @private
       def initialize(*keys, **options)
-        @key     = options.fetch(:to)
+        @key = options.fetch(:to)
         super
       end
 

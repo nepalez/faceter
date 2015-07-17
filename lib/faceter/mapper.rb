@@ -32,6 +32,7 @@ module Faceter
       rule Rules::PrependNested
       rule Rules::AppendNested
       rule Rules::MergeBranches
+      rule Rules::MergeRenames
 
     end
   end # class Mapper
