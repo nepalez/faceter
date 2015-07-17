@@ -46,7 +46,7 @@ require "faceter"
 
 class FaceterHospitals < Faceter::Mapper
   list do
-    symbolize_keys
+    symbolize_keys nested: false
 
     rename :location,           to: :point
     rename :emergency_services, to: :emergency

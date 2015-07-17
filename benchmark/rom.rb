@@ -48,6 +48,10 @@ class RomHospitals < ROM::Mapper
   relation    :hospitals
   register_as :rom
 
+  # this is necessary for comparison to be correct,
+  # for symbolizing keys to be applied to every field, not only attributes
+  reject_keys true
+
   symbolize_keys true
   attribute :state
 
