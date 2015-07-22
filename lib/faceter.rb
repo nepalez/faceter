@@ -22,12 +22,14 @@ require_relative "faceter/functions/group"
 require_relative "faceter/functions/ungroup"
 
 # Load specific AST nodes
+require_relative "faceter/nodes/list"
+require_relative "faceter/nodes/field"
+require_relative "faceter/nodes/base"
+
 require_relative "faceter/nodes/change_prefix"
 require_relative "faceter/nodes/transform_keys"
 require_relative "faceter/nodes/optional"
 
-require_relative "faceter/nodes/list"
-require_relative "faceter/nodes/field"
 require_relative "faceter/nodes/add_prefix"
 require_relative "faceter/nodes/remove_prefix"
 require_relative "faceter/nodes/stringify_keys"
