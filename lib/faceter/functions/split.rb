@@ -20,7 +20,9 @@ module Faceter
     # @return [Array<Hash>]
     #
     def self.split(hash, options = {})
-      [sub(hash, options), sub(hash, reverse(options))]
+      selector = Selector.new(options)
+      fn = -> key, _ { selector[key] }
+      [hash.select(&fn), hash.reject(&fn)]
     end
 
   end # module Functions

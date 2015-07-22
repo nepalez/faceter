@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 require "abstract_mapper"
+require "selector"
 
 # Load specific transformations
 require_relative "faceter/functions"
-require_relative "faceter/functions/sub"
 require_relative "faceter/functions/reverse"
 require_relative "faceter/functions/split"
 require_relative "faceter/functions/exclude"

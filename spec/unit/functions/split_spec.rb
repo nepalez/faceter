@@ -79,10 +79,10 @@ describe Faceter::Functions, ".split" do
   # :except and :only
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:split, except: [:foo, :bar], only: [:foo, :bar]] }
+    let(:arguments) { [:split, except: /z/, only: /b/] }
 
     let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ }       }
-    let(:output) { [{ foo: :FOO, bar: :BAR }, { baz: :BAZ }] }
+    let(:output) { [{ bar: :BAR }, { foo: :FOO, baz: :BAZ }] }
   end
 
 end # describe Faceter::Functions.split

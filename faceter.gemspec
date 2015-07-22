@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = ">= 2.1"
 
   gem.add_runtime_dependency "abstract_mapper", "~> 0.0"
+  gem.add_runtime_dependency "selector", "~> 0.0"
 
   gem.add_development_dependency "hexx-rspec", "~> 0.4"
   gem.add_development_dependency "rom", "~> 0.8"

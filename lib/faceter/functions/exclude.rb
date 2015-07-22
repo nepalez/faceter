@@ -23,7 +23,8 @@ module Faceter
     # @return [Array<Hash>]
     #
     def self.exclude(hash, options = {})
-      split(hash, options).last
+      selector = Selector.new(options)
+      hash.reject { |key, _| selector[key] }
     end
 
   end # module Functions

@@ -4,26 +4,27 @@ module Faceter
 
   module Functions
 
-    # Checks if a key satisfies restrictions that are set by options
+    # Checks if the value satisfies restrictions
     #
     # @example
-    #   fn = Functions[:check, only: [:foo, :bar]]
+    #   fn = Functions[:check, only: /foo/, except: "foo"]
     #   fn[:foo]  # => true
     #   fn["foo"] # => false
     #
-    # @param [Object] key The key to be checket agaist the options
-    # @param [Hash] options
+    # @param [Object] value The value to be checket agaist the options
+    # @param [Hash] options ({})
+    #
+    # @option options [Object, Array] :only
+    #   The white list of applicable keys
+    # @option options [Object, Array] :except
+    #   The black list of applicable keys
     #
     # @option (see Faceter::Functions.reverse)
     #
     # @return [Boolean]
     #
-    def self.check(key, options = {})
-      whitelist = options[:only]
-      blacklist = options[:except]
-
-      return Array[*whitelist].include?(key) if whitelist
-      !Array[*blacklist].include?(key)
+    def self.check(value, options = {})
+      Selector.new(options)[value]
     end
 
   end # module Functions

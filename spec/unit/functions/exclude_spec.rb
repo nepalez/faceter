@@ -79,10 +79,10 @@ describe Faceter::Functions, ".exclude" do
   # :except and :only
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, except: [:foo, :bar], only: [:foo, :bar]] }
+    let(:arguments) { [:exclude, except: /z/, only: /b/] }
 
     let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { { baz: :BAZ }                       }
+    let(:output) { { foo: :FOO, baz: :BAZ }            }
   end
 
 end # describe Faceter::Functions.exclude
