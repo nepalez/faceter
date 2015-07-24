@@ -12,17 +12,14 @@ module Faceter
     #
     class MergeExcludes < AbstractMapper::PairRule
 
-      # Selects 'exclude' + 'exclude' pairs
-      #
       # @private
-      #
       def optimize?
-        left.instance_of?(Nodes::Exclude) && right.instance_of?(Nodes::Exclude)
+        nodes.map { |node| node.instance_of? Nodes::Exclude }.reduce(:&)
       end
 
       # @private
       def optimize
-        Nodes::Exclude.new(*left.attributes, *right.attributes)
+        Nodes::Exclude.new(keys: nodes.map(&:keys).reduce(:+))
       end
 
     end # class MergeExcludes

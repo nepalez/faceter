@@ -16,11 +16,11 @@ describe Faceter::Nodes::Field do
   let(:bar) { Faceter::Test::Bar.new }
 
   it_behaves_like :creating_immutable_branch do
-    let(:attributes) { [:foo] }
+    let(:attributes) { { key: :foo } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:baz]                  }
+    let(:attributes) { { key: :baz }       }
     let(:block)      { proc { [foo, bar] } }
 
     let(:input)  { { baz: { foo: :FOO, bar: :BAR } } }

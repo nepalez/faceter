@@ -3,7 +3,8 @@
 describe Faceter::Functions, ".group" do
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :baz, only: [:foo, :bar]] }
+    let(:selector)  { Selector.new(only: [:foo, :bar]) }
+    let(:arguments) { [:group, :baz, selector] }
 
     let(:input) do
       [{ foo: :FOO, bar: :FOO, qux: :QUX }, { foo: :BAR, bar: :BAR, qux: :QUX }]
@@ -17,7 +18,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :baz, except: :qux] }
+    let(:selector)  { Selector.new(except: :qux) }
+    let(:arguments) { [:group, :baz, selector] }
 
     let(:input) do
       [{ foo: :FOO, bar: :FOO, qux: :QUX }, { foo: :BAR, bar: :BAR, qux: :QUX }]
@@ -31,7 +33,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :baz, only: [:foo, :bar]] }
+    let(:selector)  { Selector.new(only: [:foo, :bar]) }
+    let(:arguments) { [:group, :baz, selector] }
 
     let(:input) do
       [
@@ -48,7 +51,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :baz, only: [:foo, :bar]] }
+    let(:selector)  { Selector.new(only: [:foo, :bar]) }
+    let(:arguments) { [:group, :baz, selector] }
 
     let(:input) do
       [
@@ -65,7 +69,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :baz, only: [:foo, :bar]] }
+    let(:selector)  { Selector.new(only: [:foo, :bar]) }
+    let(:arguments) { [:group, :baz, selector] }
 
     let(:input) do
       [
@@ -88,7 +93,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :bar, only: [:foo]] }
+    let(:selector)  { Selector.new(only: :foo) }
+    let(:arguments) { [:group, :bar, selector] }
 
     let(:input) do
       [
@@ -113,7 +119,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :foo, only: [:foo, :baz]] }
+    let(:selector)  { Selector.new(only: [:foo, :baz]) }
+    let(:arguments) { [:group, :foo, selector] }
 
     let(:input) do
       [
@@ -130,7 +137,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :foo, only: [:foo]] }
+    let(:selector)  { Selector.new(only: :foo) }
+    let(:arguments) { [:group, :foo, selector] }
 
     let(:input) do
       [
@@ -153,7 +161,8 @@ describe Faceter::Functions, ".group" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:group, :baz, only: :quxx] }
+    let(:selector)  { Selector.new(only: :quxx) }
+    let(:arguments) { [:group, :baz, selector] }
 
     let(:input) do
       [{ foo: :FOO, bar: :FOO, qux: :QUX }, { foo: :BAR, bar: :BAR, qux: :QUX }]

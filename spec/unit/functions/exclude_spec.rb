@@ -2,87 +2,63 @@
 
 describe Faceter::Functions, ".exclude" do
 
-  it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { {}                                  }
-  end
+  let(:arguments) { [:exclude, Selector.new(options)] }
+  let(:input)     { { foo: :FOO, bar: :BAR, baz: :BAZ } }
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, {}] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { {}                                  }
+    let(:options) { {} }
+    let(:output) { {} }
   end
 
   # :only
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, only: []] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
+    let(:options) { { only: [] } }
     let(:output) { { foo: :FOO, bar: :BAR, baz: :BAZ } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, only: :qux] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
+    let(:options) { { only: :qux } }
     let(:output) { { foo: :FOO, bar: :BAR, baz: :BAZ } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, only: :foo] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { { bar: :BAR, baz: :BAZ }            }
+    let(:options) { { only: :foo } }
+    let(:output) { { bar: :BAR, baz: :BAZ } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, only: [:foo, :bar, :qux]] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { { baz: :BAZ }                       }
+    let(:options) { { only: [:foo, :bar, :qux] } }
+    let(:output) { { baz: :BAZ } }
   end
 
   # :except
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, except: []] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { {}                                  }
+    let(:options) { { except: [] } }
+    let(:output) { {} }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, except: :qux] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { {}                                  }
+    let(:options) { { except: :qux } }
+    let(:output) { {} }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, except: :foo] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { { foo: :FOO }                       }
+    let(:options) { { except: :foo } }
+    let(:output) { { foo: :FOO } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, except: [:foo, :bar, :qux]] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { { foo: :FOO, bar: :BAR }            }
+    let(:options) { { except: [:foo, :bar, :qux] } }
+    let(:output) { { foo: :FOO, bar: :BAR } }
   end
 
   # :except and :only
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:exclude, except: /z/, only: /b/] }
-
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output) { { foo: :FOO, baz: :BAZ }            }
+    let(:options) { { except: /z/, only: /b/ } }
+    let(:output) { { foo: :FOO, baz: :BAZ } }
   end
 
 end # describe Faceter::Functions.exclude

@@ -20,7 +20,7 @@ describe "symbolize_keys" do
   let(:output) do
     [
       {
-        "id" => 1,
+        id: 1,
         user:  {
           name: "joe",
           emails: [{ address: "joe@doe.com" }]
@@ -33,7 +33,7 @@ describe "symbolize_keys" do
   let(:mapper) do
     Class.new(Faceter::Mapper) do
       list do
-        symbolize_keys nested: false, except: "id"
+        symbolize_keys nested: false
 
         field :user do
           symbolize_keys

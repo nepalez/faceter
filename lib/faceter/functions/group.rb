@@ -4,26 +4,26 @@ module Faceter
 
   module Functions
 
-    # Groups array values using provided root key and options
+    # Groups array values using provided root key and selector
     #
     # @example
-    #   fn = Functions[:group, :qux, only: [:bar]]
-    #   fn[[{ foo: :FOO, bar: :BAR }, { foo: :FOO, bar: :BAZ }]]
+    #   selector = Selector.new(only: [:bar])
+    #   function = Functions[:group, :qux, selector]
+    #
+    #   function[[{ foo: :FOO, bar: :BAR }, { foo: :FOO, bar: :BAZ }]]
     #   # => [{ foo: :FOO, qux: [{ bar: :BAR }, { bar: :BAZ }] }]
     #
-    # @param [Array] array The input array
-    # @param [Object] key The nesting root key
-    # @param [Hash] options
-    #
-    # @option (see Faceter::Functions.reverse)
+    # @param [Array] array
+    # @param [Object] key
+    # @param [Selector::Condition] selector
     #
     # @return [Array<Hash>]
     #
-    def self.group(array, key, options)
+    def self.group(array, key, selector)
       tuples = Hash.new { |h, k| h[k] = [] }
 
       array.each do |hash|
-        to_group, to_keep = split(Hash[hash], options)
+        to_group, to_keep = split(Hash[hash], selector)
         grouped = t(:to_tuples)[to_keep[key]]
         to_keep.delete(key)
 

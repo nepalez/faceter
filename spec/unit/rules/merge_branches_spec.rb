@@ -8,33 +8,33 @@ module Faceter::Nodes # namespace for constants
     let(:two)  { ice_double }
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { AbstractMapper::Node.new(:foo) }
-      let(:right) { AbstractMapper::Node.new(:foo) }
+      let(:left)  { AddPrefix.new(prefix: :foo) }
+      let(:right) { AddPrefix.new(prefix: :foo) }
       let(:input) { [left, right]                  }
     end
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { Field.new(:foo)                }
-      let(:right) { AbstractMapper::Node.new(:foo) }
-      let(:input) { [left, right]                  }
+      let(:left)  { Field.new(key: :foo)        }
+      let(:right) { AddPrefix.new(prefix: :foo) }
+      let(:input) { [left, right]               }
     end
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { List.new        }
-      let(:right) { Field.new(:foo) }
-      let(:input) { [left, right]   }
+      let(:left)  { List.new             }
+      let(:right) { Field.new(key: :foo) }
+      let(:input) { [left, right]        }
     end
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { Field.new(:foo) }
-      let(:right) { List.new        }
-      let(:input) { [left, right]   }
+      let(:left)  { Field.new(key: :foo) }
+      let(:right) { List.new             }
+      let(:input) { [left, right]        }
     end
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { Field.new(:foo) }
-      let(:right) { Field.new(:bar) }
-      let(:input) { [left, right]   }
+      let(:left)  { Field.new(key: :foo) }
+      let(:right) { Field.new(key: :bar) }
+      let(:input) { [left, right]        }
     end
 
     it_behaves_like :optimizing_nodes do
@@ -46,11 +46,11 @@ module Faceter::Nodes # namespace for constants
     end
 
     it_behaves_like :optimizing_nodes do
-      let(:left)   { Field.new(:foo) { [one] } }
-      let(:right)  { Field.new(:foo) { [two] } }
+      let(:left)   { Field.new(key: :foo) { [one] } }
+      let(:right)  { Field.new(key: :foo) { [two] } }
       let(:input)  { [left, right]             }
 
-      let(:output) { Field.new(:foo) { [one, two] } }
+      let(:output) { Field.new(key: :foo) { [one, two] } }
     end
 
   end # describe Faceter::Rules::MergeBranches

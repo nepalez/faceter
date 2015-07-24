@@ -8,30 +8,30 @@ module Faceter::Nodes
     let(:input) { [left, right] }
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { AddPrefix.new(:bar) }
-      let(:right) { AddPrefix.new(:foo) }
+      let(:left)  { AddPrefix.new(prefix: :bar) }
+      let(:right) { AddPrefix.new(prefix: :foo) }
     end
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { Field.new(:bar)     }
-      let(:right) { AddPrefix.new(:foo) }
+      let(:left)  { Field.new(key: :bar)        }
+      let(:right) { AddPrefix.new(prefix: :foo) }
     end
 
     it_behaves_like :skipping_nodes do
       let(:left)  { List.new          }
-      let(:right) { Exclude.new(:foo) }
+      let(:right) { Exclude.new(prefix: :foo) }
     end
 
     it_behaves_like :optimizing_nodes do
       let(:left)  { List.new { [one] }  }
-      let(:right) { AddPrefix.new(:foo) }
+      let(:right) { AddPrefix.new(prefix: :foo) }
 
       let(:output) { left }
     end
 
     it_behaves_like :optimizing_nodes do
       let(:left)  { List.new { [one] }                }
-      let(:right) { AddPrefix.new(:foo, nested: true) }
+      let(:right) { AddPrefix.new(prefix: :foo, nested: true) }
 
       let(:output) { List.new { [one, right] } }
     end

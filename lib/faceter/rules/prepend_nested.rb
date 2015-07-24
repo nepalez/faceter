@@ -7,7 +7,7 @@ module Faceter
     # Optimizes AST by moving nested nodes from the array level to one
     # level deeper:
     #
-    # @example Removes unnecessary iterations by the same array.
+    # @example Removes unnecessary iterations by items of the same array.
     #   prefix "foo", nested: true
     #   list do
     #     # ...
@@ -34,12 +34,9 @@ module Faceter
     #
     class PrependNested < AbstractMapper::PairRule
 
-      # Selects 'node with :nested option' + 'list' for merging
-      #
       # @private
-      #
       def optimize?
-        right.instance_of?(Nodes::List) && left.respond_to?(:nested)
+        left.respond_to?(:nested) && right.instance_of?(Nodes::List)
       end
 
       # @private

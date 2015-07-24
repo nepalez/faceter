@@ -4,23 +4,21 @@ module Faceter
 
   module Functions
 
-    # Splits the hash into two parts, where the first one is defined
-    # by options, while the second contains the rest of the source
+    # Splits the hash into two parts using a selector
     #
     # @example
-    #   source = { foo: :FOO, bar: :BAR, baz: :BAZ }
-    #   fn = Functions[:split, except: :bar]
-    #   fn[source] => [{ foo: :FOO, baz: :BAZ }, { bar: :BAR }]
+    #   selector = Selector.new(except: /r/)
+    #   function = Functions[:split, selector]
+    #
+    #   function[{ foo: :FOO, bar: :BAR, baz: :BAZ }]
+    #   # => [{ foo: :FOO, baz: :BAZ }, { bar: :BAR }]
     #
     # @param [Hash] hash
-    # @param [Hash] options
-    #
-    # @option options (see Faceter::Functions.reverse)
+    # @param [Selector::Condition] selector
     #
     # @return [Array<Hash>]
     #
-    def self.split(hash, options = {})
-      selector = Selector.new(options)
+    def self.split(hash, selector)
       fn = -> key, _ { selector[key] }
       [hash.select(&fn), hash.reject(&fn)]
     end

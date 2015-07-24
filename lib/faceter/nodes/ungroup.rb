@@ -6,35 +6,17 @@ module Faceter
     #
     # @api private
     #
-    class Ungroup < Optional
+    class Ungroup < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(*keys, options)
-      # Creates the node
-      #
-      # @example
-      #   Ungroup.new :bar, :baz, from: :foo
-      #
-      # @param [Object, Array] keys The key or list of keys to be grouped
-      # @param [Hash] options
-      #
-      # @option options [Object] :from The key to ungroup fields from
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::Ungroup]
-
-      # @private
-      def initialize(*keys, **options)
-        @key = options.fetch(:from)
-        super
-      end
+      attribute :key
+      attribute :selector
 
       # Transformer function, defined by the node
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:ungroup, @key, @options]
+        Functions[:ungroup, key, selector]
       end
 
     end # class Ungroup

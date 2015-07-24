@@ -12,10 +12,7 @@ module Faceter
     #
     class MergeBranches < AbstractMapper::PairRule
 
-      # Selects 'branch' + 'branch' pairs with the same types and attributes
-      #
       # @private
-      #
       def optimize?
         left.is_a?(AbstractMapper::Branch) &&
           right.class.equal?(__left_node__) &&
@@ -24,7 +21,7 @@ module Faceter
 
       # @private
       def optimize
-        __left_node__.new(*__left_attributes__) { nodes.flat_map(&:entries) }
+        __left_node__.new(__left_attributes__) { nodes.flat_map(&:entries) }
       end
 
       private

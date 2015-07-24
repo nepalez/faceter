@@ -10,19 +10,14 @@ module Faceter
     #
     class MergeRenames < AbstractMapper::PairRule
 
-      # Selects 'rename' + 'rename' pairs
-      #
       # @private
-      #
       def optimize?
-        left.instance_of?(Nodes::Rename) && right.instance_of?(Nodes::Rename)
+        nodes.map { |node| node.instance_of? Nodes::Rename }.reduce(:&)
       end
 
       # @private
       def optimize
-        left_hash  = left.attributes.first
-        right_hash = right.attributes.first
-        Nodes::Rename.new left_hash.merge(right_hash)
+        Nodes::Rename.new keys: nodes.map(&:keys).reduce(:merge)
       end
 
     end # class MergeRenames

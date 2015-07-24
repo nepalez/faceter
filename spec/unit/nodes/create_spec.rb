@@ -3,41 +3,48 @@
 describe Faceter::Nodes::Create do
 
   it_behaves_like :creating_immutable_node do
-    let(:attributes) { [from: :bar] }
+    let(:attributes) { { keys: [] } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [from: :bar] }
+    let(:attributes) { { keys: :bar } }
 
     let(:input)  { { bar: :BAR, baz: :BAZ } }
     let(:output) { :BAR                     }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, from: :bar] }
+    let(:attributes) { { keys: [:bar] } }
+
+    let(:input)  { { bar: :BAR, baz: :BAZ } }
+    let(:output) { [:BAR]                   }
+  end
+
+  it_behaves_like :mapping_immutable_input do
+    let(:attributes) { { name: :foo, keys: :bar } }
 
     let(:input)  { { bar: :BAR, baz: :BAZ }            }
     let(:output) { { bar: :BAR, baz: :BAZ, foo: :BAR } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, from: [:bar, :baz]] }
+    let(:attributes) { { name: :foo, keys: [:bar, :baz] } }
 
     let(:input)  { { bar: :BAR, baz: :BAZ }                    }
     let(:output) { { bar: :BAR, baz: :BAZ, foo: [:BAR, :BAZ] } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, from: :bar]      }
-    let(:block)      { proc { |bar| bar.to_s } }
+    let(:block)    { proc { |bar| bar.to_s } }
+    let(:attributes) { { name: :foo, keys: :bar } }
 
     let(:input)  { { bar: :BAR, baz: :BAZ }             }
     let(:output) { { bar: :BAR, baz: :BAZ, foo: "BAR" } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, from: [:bar, :baz]]       }
-    let(:block)      { proc { |args| args.map(&:to_s) } }
+    let(:block)      { proc { |*args| args.map(&:to_s) } }
+    let(:attributes) { { name: :foo, keys: [:bar, :baz] } }
 
     let(:input)  { { bar: :BAR, baz: :BAZ }                   }
     let(:output) { { bar: :BAR, baz: :BAZ, foo: %w(BAR BAZ) } }

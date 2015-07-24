@@ -4,25 +4,25 @@ module Faceter
 
   module Functions
 
-    # Ungroups array values using provided root key and options
+    # Ungroups array values using provided root key and selector
     #
     # @example
-    #   fn = Functions[:ungroup, :qux, only: [:bar]]
-    #   fn[[{ foo: :FOO, qux: [{ bar: :BAR }, { bar: :BAZ }] }]]
+    #   selector = Selector.new(only: :bar)
+    #   function = Functions[:ungroup, :qux, selector]
+    #
+    #   function[[{ foo: :FOO, qux: [{ bar: :BAR }, { bar: :BAZ }] }]]
     #   # => [{ foo: :FOO, bar: :BAR }, { foo: :FOO, bar: :BAZ }]
     #
-    # @param [Array] array The input array
-    # @param [Object] key The nesting root key
-    # @param [Hash] options
-    #
-    # @option (see Faceter::Functions.reverse)
+    # @param [Array] array
+    # @param [Object] key
+    # @param [Selector::Condition] selector
     #
     # @return [Array<Hash>]
     #
-    def self.ungroup(array, key, options = {})
+    def self.ungroup(array, key, selector)
       array.flat_map do |hash|
         list = t(:to_tuples)[hash.delete(key)]
-        group(list, key, t(:reverse)[options]).map { |item| hash.merge(item) }
+        group(list, key, !selector).map { |item| hash.merge(item) }
       end
     end
 

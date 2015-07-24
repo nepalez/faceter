@@ -8,23 +8,7 @@ module Faceter
     #
     class Unfold < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(options)
-      # Creates the node
-      #
-      # @example
-      #   Unfold.new from: 'foo'
-      #
-      # @param [Hash] options
-      # @option options [Object] :from The key whose value should be unfolded
-      #
-      # @return [Faceter::Nodes::Unfold]
-
-      # @private
-      def initialize(**options)
-        @key = options.fetch(:from)
-        super
-      end
+      attribute :key
 
       # Transformer function, defined by the node
       #

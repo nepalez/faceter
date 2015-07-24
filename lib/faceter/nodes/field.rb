@@ -8,29 +8,14 @@ module Faceter
     #
     class Field < AbstractMapper::Branch
 
-      # @!scope class
-      # @!method new(name)
-      # Creates the node for the named field
-      #
-      # @example
-      #   Field.new(:foo)
-      #
-      # @param [Object] name The name of the field (a tuple key)
-      #
-      # @return [Faceter::Nodes::Field]
-
-      # @private
-      def initialize(name)
-        @name = name
-        super
-      end
+      attribute :key
 
       # Builds a transproc function for the field node from its child nodes
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:map_value, @name, super]
+        Functions[:map_value, key, super]
       end
 
     end # class Field

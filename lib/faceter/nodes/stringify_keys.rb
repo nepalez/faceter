@@ -6,27 +6,17 @@ module Faceter
     #
     # @api private
     #
-    class StringifyKeys < TransformKeys
+    class StringifyKeys < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(options)
-      # Creates the node
-      #
-      # @example
-      #   StringifyKeys.new nested: false
-      #
-      # @param [Hash] options
-      #
-      # @option options [Boolean] :nested (true)
-      #   Whether keys should be stringified deeply
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::StringifyKeys]
+      attribute :nested, Boolean, default: true
 
-      private
-
-      def __function__
-        -> key { key.to_s }
+      # Transformer function, defined by the node
+      #
+      # @return [Transproc::Function]
+      #
+      def transproc
+        fn = Functions[:stringify_keys]
+        nested ? Functions[:recursion, Functions[:is, Hash, fn]] : fn
       end
 
     end # class StringifyKeys

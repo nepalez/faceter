@@ -15,12 +15,9 @@ describe Faceter::Nodes::List do
   let(:foo) { Faceter::Test::Foo.new }
   let(:bar) { Faceter::Test::Bar.new }
 
-  it_behaves_like :creating_immutable_branch do
-    let(:attributes) { [] }
-  end
+  it_behaves_like :creating_immutable_branch
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { []                  }
     let(:block)      { proc { [foo, bar] } }
 
     let(:input)  { [{ foo: :FOO, bar: :BAR }, { foo: :BAZ, bar: :QUX }] }

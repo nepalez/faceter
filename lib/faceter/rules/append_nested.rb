@@ -11,10 +11,7 @@ module Faceter
     #
     class AppendNested < AbstractMapper::PairRule
 
-      # Selects 'list' + 'node with :nested option' for merging
-      #
       # @private
-      #
       def optimize?
         left.instance_of?(Nodes::List) && right.respond_to?(:nested)
       end

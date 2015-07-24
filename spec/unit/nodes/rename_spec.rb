@@ -3,11 +3,11 @@
 describe Faceter::Nodes::Rename do
 
   it_behaves_like :creating_immutable_node do
-    let(:attributes) { [{}] }
+    let(:attributes) { { keys: {} } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [foo: "bar", baz: "qux"] }
+    let(:attributes) { { keys: { foo: "bar", baz: "qux" } } }
 
     let(:input)  { { foo: :FOO, baz: :BAZ }         }
     let(:output) { { "bar" => :FOO, "qux" => :BAZ } }

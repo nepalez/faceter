@@ -3,40 +3,20 @@ module Faceter
   module Nodes
 
     # The node describes unwrapping values from the nested tuples
-    # either fully or partially.
     #
     # @api private
     #
-    class Unwrap < Optional
+    class Unwrap < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(*keys, options)
-      # Creates the node
-      #
-      # @example
-      #   Unwrap.new from: :foo, only: [:bar, :baz]
-      #   Unwrap.new from: :foo, except: :qux
-      #
-      # @param [Object, Array] keys The key, or list of keys to be unwrapped
-      # @param [Hash] options
-      #
-      # @option options [Object] :from The key to unwrap values from
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::Unwrap]
-
-      # @private
-      def initialize(*keys, **options)
-        @key = options.fetch(:from)
-        super
-      end
+      attribute :key
+      attribute :selector
 
       # Transformer function, defined by the node
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:unwrap, @key, @options]
+        Functions[:unwrap, key, selector]
       end
 
     end # class Unwrap

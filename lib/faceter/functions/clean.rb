@@ -7,18 +7,19 @@ module Faceter
     # Removes selected keys from hash if they values are empty
     #
     # @example
-    #   fn = Functions[:clean, [:foo, :bar]]
-    #   fn[foo: { foo: :FOO }, bar: {}, baz: {}]
-    #   # => { foo: { foo: :FOO }, baz: {} }
+    #   selector = Selector.new(only: /b/)
+    #   function = Functions[:clean, selector]
+    #
+    #   function[foo: {}, bar: {}, baz: :BAZ]
+    #   # => { foo: {}, baz: :BAZ }
     #
     # @param [Hash] hash
-    # @param [Array] keys
+    # @param [Selector::Condition] selector
     #
     # @return [Hash]
     #
-    def self.clean(hash, *keys)
-      names = keys.flatten
-      hash.reject { |key, value| names.include?(key) && value.empty? }
+    def self.clean(hash, selector)
+      hash.reject { |key, value| selector[key] && value.empty? }
     end
 
   end # module Functions

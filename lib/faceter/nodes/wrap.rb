@@ -2,39 +2,21 @@ module Faceter
 
   module Nodes
 
-    # The node describes wrapping values or parts of hashes into nested tuples
+    # The node describes wrapping hash values into nested tuple
     #
     # @api private
     #
-    class Wrap < Optional
+    class Wrap < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(*keys, options)
-      # Creates the node
-      #
-      # @example
-      #   Wrap.new to: :foo, only: [:bar, :baz]
-      #
-      # @param [Object, Array] keys The key or list of keys to be wrapped
-      # @param [Hash] options
-      #
-      # @option options [Object] :to The key of the updated/created field
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::Wrap]
-
-      # @private
-      def initialize(*keys, **options)
-        @key = options.fetch(:to)
-        super
-      end
+      attribute :key
+      attribute :selector
 
       # Transformer function, defined by the node
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:wrap, @key, @options]
+        Functions[:wrap, key, selector]
       end
 
     end # class Wrap

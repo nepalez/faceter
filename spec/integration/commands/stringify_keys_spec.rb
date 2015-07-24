@@ -28,7 +28,7 @@ describe "stringify_keys" do
   let(:output) do
     [
       {
-        id: 1,
+        "id" => 1,
         "user" => {
           "name" => "joe",
           "emails" => [{ "address" => "joe@doe.com" }]
@@ -36,7 +36,7 @@ describe "stringify_keys" do
         "roles" => [{ name: "admin" }]
       },
       {
-        id: 2,
+        "id" => 2,
         "user" => {
           "name" => "jane",
           "emails" => [{ "address" => "jane@doe.com" }]
@@ -49,7 +49,7 @@ describe "stringify_keys" do
   let(:mapper) do
     Class.new(Faceter::Mapper) do
       list do
-        stringify_keys except: :id, nested: false
+        stringify_keys nested: false
 
         field "user" do
           stringify_keys

@@ -2,8 +2,10 @@
 
 describe Faceter::Functions, ".ungroup" do
 
+  let(:arguments) { [:ungroup, :baz, Selector.new(options)] }
+
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz] }
+    let(:options) { {} }
 
     let(:input) do
       [{ qux: :QUX, baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }] }]
@@ -15,7 +17,7 @@ describe Faceter::Functions, ".ungroup" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz, except: []] }
+    let(:options) { { only: [:foo, :bar] } }
 
     let(:input) do
       [{ qux: :QUX, baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }] }]
@@ -27,19 +29,7 @@ describe Faceter::Functions, ".ungroup" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz, only: [:foo, :bar]] }
-
-    let(:input) do
-      [{ qux: :QUX, baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }] }]
-    end
-
-    let(:output) do
-      [{ qux: :QUX, foo: :FOO, bar: :FOO }, { qux: :QUX, foo: :BAR, bar: :BAR }]
-    end
-  end
-
-  it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz, only: :foo] }
+    let(:options) { { only: :foo } }
 
     let(:input) do
       [{ qux: :QUX, baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }] }]
@@ -54,7 +44,7 @@ describe Faceter::Functions, ".ungroup" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz, only: :foo] }
+    let(:options) { { only: :foo } }
 
     let(:input) do
       [{ qux: :QUX, baz: [{ foo: :FOO, bar: :FOO }, { foo: :FOO, bar: :BAR }] }]
@@ -66,7 +56,7 @@ describe Faceter::Functions, ".ungroup" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz, only: [:foo, :bar]] }
+    let(:options) { { only: [:foo, :bar] } }
 
     let(:input) do
       [
@@ -83,7 +73,7 @@ describe Faceter::Functions, ".ungroup" do
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:ungroup, :baz] }
+    let(:options) { {} }
 
     let(:input) do
       [{ qux: :QUX, baz: [] }]

@@ -6,35 +6,17 @@ module Faceter
     #
     # @api private
     #
-    class Group < Optional
+    class Group < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(*keys, options)
-      # Creates the node
-      #
-      # @example
-      #   Group.new :bar, :baz, to: :foo
-      #
-      # @param [Object, Array] keys The key or list of keys to be grouped
-      # @param [Hash] options
-      #
-      # @option options [Object] :to The name of the created/updated group
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::Group]
-
-      # @private
-      def initialize(*keys, **options)
-        @key = options.fetch(:to)
-        super
-      end
+      attribute :key
+      attribute :selector
 
       # Transformer function, defined by the node
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:group, @key, @options]
+        Functions[:group, key, selector]
       end
 
     end # class Group

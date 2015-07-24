@@ -4,27 +4,22 @@ module Faceter
 
   module Functions
 
-    # Excludes keys from hash following options
+    # Excludes keys, that satisfies the selector, from the hash
     #
     # @example
-    #   source = { foo: :FOO, bar: :BAR, baz: :BAZ }
+    #   selector = Selector.new(only: /b/)
+    #   function = Functions[:exclude, selector]
     #
-    #   Functions[:exclude, except: :bar][source]
-    #   # => { bar: :BAR }
-    #
-    #   Functions[:exclude, only: :bar][source]
-    #   # => { foo: :FOO, baz: :BAZ }
+    #   function[{ foo: :FOO, bar: :BAR, baz: :BAZ }]
+    #   # => { foo: :FOO }
     #
     # @param [Hash] hash
-    # @param [Hash] options
-    #
-    # @option options (see Faceter::Functions.reverse)
+    # @param [Selector::Condition] selector
     #
     # @return [Array<Hash>]
     #
-    def self.exclude(hash, options = {})
-      selector = Selector.new(options)
-      hash.reject { |key, _| selector[key] }
+    def self.exclude(hash, selector)
+      hash.reject { |key| selector[key] }
     end
 
   end # module Functions

@@ -6,28 +6,16 @@ module Faceter
     #
     # @api private
     #
-    class Exclude < Optional
+    class Exclude < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(*keys)
-      # Creates the node
-      #
-      # @example
-      #   Exclude.new :bar, :baz
-      #
-      # @param [Object, Array] keys The key or list of keys to be excluded
-      # @param [Hash] options
-      #
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::Exclude]
+      attribute :selector, Selector::Condition
 
       # Transformer function, defined by the node
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:exclude, @options]
+        Functions[:exclude, selector]
       end
 
     end # class Exclude

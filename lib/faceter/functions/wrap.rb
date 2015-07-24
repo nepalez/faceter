@@ -4,23 +4,23 @@ module Faceter
 
   module Functions
 
-    # Partially wraps a subhash into the new key following the options
+    # Partially wraps a subhash into the new key following the selector
     #
     # @example
-    #   fn = Functions[:wrap, :foo, only: :bar]
-    #   fn[foo: { baz: :BAZ }, bar: :BAR, qux: :QUX]
+    #   selector = Selector.new(only: :bar)
+    #   function = Functions[:wrap, :foo, selector]
+    #
+    #   function[foo: { baz: :BAZ }, bar: :BAR, qux: :QUX]
     #   # => { foo: { baz: :BAZ, bar: :BAR }, qux: :QUX }
     #
     # @param [Hash] hash
     # @param [Object] key
-    # @param [Hash] options
-    #
-    # @option (see Faceter::Functions.reverse)
+    # @param [Selector::Condition] selector
     #
     # @return Hash
     #
-    def self.wrap(hash, key, options = {})
-      to_wrap, to_keep = split hash, options
+    def self.wrap(hash, key, selector)
+      to_wrap, to_keep = split(hash, selector)
       wrapped = to_keep[key]
 
       to_wrap = wrapped.merge(to_wrap) if wrapped.instance_of? Hash

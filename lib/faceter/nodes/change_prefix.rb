@@ -13,42 +13,36 @@ module Faceter
     #
     class ChangePrefix < AbstractMapper::Node
 
-      # @!attribute [r] nested
-      #
-      # @return [Boolean] Whether the transformation applied to nested levels
-      #
-      attr_reader :nested
-
-      # @private
-      def initialize(prefix, **options)
-        @prefix    = prefix
-        @options   = options
-        @separator = options.fetch(:separator) { "_" }
-        @nested    = options.fetch(:nested) { false }
-        super
-      end
+      attribute :prefix
+      attribute :separator, String, default: "_"
+      attribute :nested, Boolean, default: false
+      attribute :selector
 
       # Transformer function, defined by the node
       #
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[:transform_hash, @nested, __transformation__]
+        return __transformation__ unless nested
+        Functions[:recursion, Functions[:is, Hash, __transformation__]]
       end
 
       private
 
       def __transformation__
-        Functions[:map_keys, __filtered__]
+        Functions[:map_keys, __selected__]
       end
 
-      def __filtered__
-        Functions[:guard, Functions[:check, @options], __function__]
+      def __selected__
+        return __function__ unless selector
+        Functions[:guard, selector, __function__]
       end
 
       def __function__
-        Functions[:keep_symbol, Functions[__operation__, @prefix, @separator]]
+        Functions[:keep_symbol, Functions[__operation__, prefix, separator]]
       end
+
+      # __operation__ should be defined in a specific node
 
     end # class AddPrefix
 

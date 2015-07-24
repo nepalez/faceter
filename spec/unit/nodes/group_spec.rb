@@ -2,12 +2,15 @@
 
 describe Faceter::Nodes::Group do
 
+  let(:attributes) { { key: :baz, selector: selector } }
+  let(:selector)   { Selector.new(options) }
+
   it_behaves_like :creating_immutable_node do
-    let(:attributes) { [:foo, to: :bar] }
+    let(:options) { {} }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, :bar, to: :baz] }
+    let(:options) { { only: [:foo, :bar] } }
 
     let(:input) do
       [
@@ -27,47 +30,7 @@ describe Faceter::Nodes::Group do
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [to: :baz, only: [:foo, :bar]] }
-
-    let(:input) do
-      [
-        { foo: :FOO, bar: :FOO, qux: :QUX },
-        { foo: :BAR, bar: :BAR, qux: :QUX }
-      ]
-    end
-
-    let(:output) do
-      [
-        {
-          qux: :QUX,
-          baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }]
-        }
-      ]
-    end
-  end
-
-  it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [to: :baz, except: :qux] }
-
-    let(:input) do
-      [
-        { foo: :FOO, bar: :FOO, qux: :QUX },
-        { foo: :BAR, bar: :BAR, qux: :QUX }
-      ]
-    end
-
-    let(:output) do
-      [
-        {
-          qux: :QUX,
-          baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }]
-        }
-      ]
-    end
-  end
-
-  it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, :bar, to: :baz] }
+    let(:options) { { only: [:foo, :bar] } }
 
     let(:input) do
       [
@@ -87,7 +50,7 @@ describe Faceter::Nodes::Group do
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, :bar, to: :baz] }
+    let(:options) { { only: [:foo, :bar] } }
 
     let(:input) do
       [
@@ -107,7 +70,7 @@ describe Faceter::Nodes::Group do
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, :bar, to: :baz] }
+    let(:options) { { only: [:foo, :bar] } }
 
     let(:input) do
       [
@@ -130,12 +93,12 @@ describe Faceter::Nodes::Group do
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, to: :bar] }
+    let(:options) { { only: :foo } }
 
     let(:input) do
       [
-        { foo: :FOO, bar: [{ baz: :FOO }, { baz: :BAR }], qux: :QUX },
-        { foo: :BAR, bar: [{ baz: :BAZ }, { baz: :QUX }], qux: :QUX }
+        { foo: :FOO, baz: [{ baz: :FOO }, { baz: :BAR }], qux: :QUX },
+        { foo: :BAR, baz: [{ baz: :BAZ }, { baz: :QUX }], qux: :QUX }
       ]
     end
 
@@ -143,7 +106,7 @@ describe Faceter::Nodes::Group do
       [
         {
           qux: :QUX,
-          bar: [
+          baz: [
             { baz: :FOO, foo: :FOO },
             { baz: :BAR, foo: :FOO },
             { baz: :BAZ, foo: :BAR },
@@ -155,7 +118,7 @@ describe Faceter::Nodes::Group do
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, :baz, to: :foo] }
+    let(:options) { { only: [:foo, :baz] } }
 
     let(:input) do
       [
@@ -168,19 +131,19 @@ describe Faceter::Nodes::Group do
       [
         {
           qux: :QUX,
-          foo: [{ foo: :FOO, baz: :FOO }, { foo: :BAR, baz: :BAR }]
+          baz: [{ foo: :FOO, baz: :FOO }, { foo: :BAR, baz: :BAR }]
         }
       ]
     end
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [:foo, to: :foo] }
+    let(:options) { { only: :baz } }
 
     let(:input) do
       [
-        { foo: [{ bar: :FOO }, { baz: :FOO  }], qux: :QUX },
-        { foo: [{ bar: :BAR }, { baz: :BAR }],  qux: :QUX }
+        { baz: [{ bar: :FOO }, { baz: :FOO  }], qux: :QUX },
+        { baz: [{ bar: :BAR }, { baz: :BAR }],  qux: :QUX }
       ]
     end
 
@@ -188,9 +151,9 @@ describe Faceter::Nodes::Group do
       [
         {
           qux: :QUX,
-          foo: [
-            { foo: [{ bar: :FOO }, { baz: :FOO  }] },
-            { foo: [{ bar: :BAR }, { baz: :BAR }] }
+          baz: [
+            { baz: [{ bar: :FOO }, { baz: :FOO  }] },
+            { baz: [{ bar: :BAR }, { baz: :BAR }] }
           ]
         }
       ]

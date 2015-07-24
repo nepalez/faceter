@@ -2,20 +2,16 @@
 
 describe Faceter::Nodes::Unfold do
 
-  it_behaves_like :creating_immutable_node do
-    let(:attributes) { [from: :foo] }
-  end
+  let(:attributes) { { key: :foo } }
+
+  it_behaves_like :creating_immutable_node
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [from: :foo] }
-
     let(:input)  { { foo: :FOO } }
     let(:output) { :FOO          }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:attributes) { [from: :foo] }
-
     let(:input)  { {}  }
     let(:output) { nil }
   end

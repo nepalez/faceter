@@ -2,74 +2,53 @@
 
 describe Faceter::Functions, ".unwrap" do
 
-  it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo] }
+  let(:arguments) { [:unwrap, :foo, Selector.new(options)] }
+  let(:input)     { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: {} } }
 
-    let(:input)  { { bar: :BAR, baz: :BAZ, qux: :QUX } }
-    let(:output) { { bar: :BAR, baz: :BAZ, qux: :QUX } }
+  it_behaves_like :transforming_immutable_data do
+    let(:options) { {} }
+    let(:output)  { { foo: :FOO, bar: :BAR, baz: :BAZ, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: :FOO, bar: :BAR, baz: :BAZ, qux: :QUX }          }
+    let(:options) { { except: :foo } }
+    let(:output)  { { foo: { foo: :FOO }, bar: :BAR, baz: :BAZ, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, except: []] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: :FOO, bar: :BAR, baz: :BAZ, qux: :QUX }          }
+    let(:options) { { except: :bar } }
+    let(:output)  { { foo: :FOO, baz: :BAZ, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, except: :foo] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: { foo: :FOO }, bar: :BAR, baz: :BAZ, qux: :QUX } }
+    let(:options) { { except: [:foo, :bar] } }
+    let(:output)  { { foo: { foo: :FOO, bar: :BAR }, baz: :BAZ, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, except: :bar] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: :FOO, baz: :BAZ, qux: :QUX }                     }
+    let(:options) { { only: [] } }
+    let(:output)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, except: [:foo, :bar]] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: { foo: :FOO, bar: :BAR }, baz: :BAZ, qux: :QUX } }
+    let(:options) { { only: :foo } }
+    let(:output)  { { foo: :FOO, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, only: []] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
+    let(:options) { {} }
+    let(:input)   { { foo: { bar: :BAR }, qux: {} } }
+    let(:output)  { { bar: :BAR, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, only: :foo] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: :FOO, qux: :QUX }                                }
+    let(:options) { { only: :bar } }
+    let(:output)  { { foo: { foo: :FOO, baz: :BAZ }, bar: :BAR, qux: {} } }
   end
 
   it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, only: :bar] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: { foo: :FOO, baz: :BAZ }, bar: :BAR, qux: :QUX } }
-  end
-
-  it_behaves_like :transforming_immutable_data do
-    let(:arguments) { [:unwrap, :foo, only: [:foo, :bar]] }
-
-    let(:input)  { { foo: { foo: :FOO, bar: :BAR, baz: :BAZ }, qux: :QUX } }
-    let(:output) { { foo: :FOO, bar: :BAR, qux: :QUX }                     }
+    let(:options) { { only: [:foo, :bar] } }
+    let(:output)  { { foo: :FOO, bar: :BAR, qux: {} } }
   end
 
 end # describe Faceter::Functions.unwrap

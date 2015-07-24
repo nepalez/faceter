@@ -6,27 +6,17 @@ module Faceter
     #
     # @api private
     #
-    class SymbolizeKeys < TransformKeys
+    class SymbolizeKeys < AbstractMapper::Node
 
-      # @!scope class
-      # @!method new(options)
-      # Creates the node
-      #
-      # @example
-      #   SymbolizeKeys.new nested: false, only: %w(foo bar)
-      #
-      # @param [Hash] options
-      #
-      # @option options [Boolean] :nested (true)
-      #   Whether keys should be symbolized deeply
-      # @option (see Faceter::Functions.reverse)
-      #
-      # @return [Faceter::Nodes::SymbolizeKeys]
+      attribute :nested, Boolean, default: true
 
-      private
-
-      def __function__
-        -> key { key.to_s.to_sym }
+      # Transformer function, defined by the node
+      #
+      # @return [Transproc::Function]
+      #
+      def transproc
+        fn = Functions[:symbolize_keys]
+        nested ? Functions[:recursion, Functions[:is, Hash, fn]] : fn
       end
 
     end # class SymbolizeKeys

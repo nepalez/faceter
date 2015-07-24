@@ -40,7 +40,7 @@ rom = ROM.finalize.env
 
 # Provide a benchmark
 Benchmark.ips do |x|
-  x.config time: 20, warmup: 5
+  x.config time: 120, warmup: 10
 
   x.report("ROM mapper") do
     rom.relation(:hospitals).as(:rom).to_a
