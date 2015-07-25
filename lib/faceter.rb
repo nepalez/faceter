@@ -6,8 +6,6 @@ require "selector"
 # Load specific transformations
 require_relative "faceter/functions"
 require_relative "faceter/functions/split"
-require_relative "faceter/functions/symbolize_keys"
-require_relative "faceter/functions/stringify_keys"
 require_relative "faceter/functions/exclude"
 require_relative "faceter/functions/keep_symbol"
 require_relative "faceter/functions/add_prefix"

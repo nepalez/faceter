@@ -15,7 +15,7 @@ module Faceter
       # @return [Transproc::Function]
       #
       def transproc
-        Functions[-> hash { hash[@key] }]
+        Functions[-> hash { hash[key] }]
       end
 
     end # class Unfold

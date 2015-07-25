@@ -14,8 +14,8 @@ module Faceter
     class ChangePrefix < AbstractMapper::Node
 
       attribute :prefix
-      attribute :separator, String, default: "_"
-      attribute :nested, Boolean, default: false
+      attribute :separator, default: "_"
+      attribute :nested, default: false
       attribute :selector
 
       # Transformer function, defined by the node

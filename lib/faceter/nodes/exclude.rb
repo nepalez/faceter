@@ -8,7 +8,7 @@ module Faceter
     #
     class Exclude < AbstractMapper::Node
 
-      attribute :selector, Selector::Condition
+      attribute :selector
 
       # Transformer function, defined by the node
       #

@@ -8,7 +8,7 @@ module Faceter
     #
     class StringifyKeys < AbstractMapper::Node
 
-      attribute :nested, Boolean, default: true
+      attribute :nested, default: true
 
       # Transformer function, defined by the node
       #

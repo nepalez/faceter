@@ -4,8 +4,8 @@ module Faceter::Nodes # namespace for constants
 
   describe Faceter::Rules::MergeBranches do
 
-    let(:one)  { ice_double }
-    let(:two)  { ice_double }
+    let(:one) { ice_double }
+    let(:two) { ice_double }
 
     it_behaves_like :skipping_nodes do
       let(:left)  { AddPrefix.new(prefix: :foo) }
@@ -26,9 +26,9 @@ module Faceter::Nodes # namespace for constants
     end
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { Field.new(key: :foo) }
-      let(:right) { List.new             }
-      let(:input) { [left, right]        }
+      let(:left)  { AbstractMapper::Branch.new }
+      let(:right) { List.new                   }
+      let(:input) { [left, right]              }
     end
 
     it_behaves_like :skipping_nodes do

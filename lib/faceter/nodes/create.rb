@@ -32,7 +32,7 @@ module Faceter
       end
 
       def __values__
-        return -> hash { hash[keys] } unless keys.instance_of?(Array)
+        return -> hash { hash.fetch(keys) } unless keys.instance_of?(Array)
         -> hash { hash.values_at(*keys) }
       end
 

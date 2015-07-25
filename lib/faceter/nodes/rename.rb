@@ -8,7 +8,7 @@ module Faceter
     #
     class Rename < AbstractMapper::Node
 
-      attribute :keys, Hash
+      attribute :keys, default: {}
 
       # Transformer function, defined by the node
       #
