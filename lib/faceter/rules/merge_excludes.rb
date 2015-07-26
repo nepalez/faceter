@@ -19,7 +19,7 @@ module Faceter
 
       # @private
       def optimize
-        Nodes::Exclude.new(keys: nodes.map(&:keys).reduce(:+))
+        Nodes::Exclude.new(selector: nodes.map(&:selector).reduce(:|))
       end
 
     end # class MergeExcludes

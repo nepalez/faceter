@@ -48,7 +48,7 @@ module Faceter::Nodes # namespace for constants
     it_behaves_like :optimizing_nodes do
       let(:left)   { Field.new(key: :foo) { [one] } }
       let(:right)  { Field.new(key: :foo) { [two] } }
-      let(:input)  { [left, right]             }
+      let(:input)  { [left, right]                  }
 
       let(:output) { Field.new(key: :foo) { [one, two] } }
     end
