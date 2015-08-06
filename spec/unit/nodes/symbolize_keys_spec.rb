@@ -10,7 +10,7 @@ describe Faceter::Nodes::SymbolizeKeys do
 
   it_behaves_like :mapping_immutable_input do
     let(:attributes) { {} }
-    let(:output) { { foo: [{ "1": :BAZ }] } }
+    let(:output) { { foo: [{ "1".to_sym => :BAZ }] } }
   end
 
   it_behaves_like :mapping_immutable_input do

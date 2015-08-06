@@ -261,6 +261,7 @@ Compatibility
 -------------
 
 Tested under rubies [compatible to MRI 2.1+](.travis.yml).
+JRuby is supported from the head version only.
 
 Uses [RSpec] 3.0+ for testing and [hexx-suit] for dev/test tools collection.
 

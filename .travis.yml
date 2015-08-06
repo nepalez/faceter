@@ -1,14 +1,16 @@
 ---
 language:     ruby
 cache:        bundler
-script:       bundle exec rake test:coverage:run
+script:       "bundle exec rake test:coverage:run"
 bundler_args: --without metrics
+env:
+  global:
+    - JRUBY_OPTS='--dev -J-Xmx1024M'
 rvm:
   - '2.1'
   - '2.2'
   - ruby-head
   - rbx-2 --2.1
-  - jruby-9.0.0.0.pre2
   - jruby-head
 matrix:
   allow_failures:
