@@ -44,7 +44,7 @@ module Faceter
     end
 
     # @private
-    def self.create(name, **options)
+    def self.create(name = nil, **options)
       { name: name, keys: options.fetch(:from) }
     end
 

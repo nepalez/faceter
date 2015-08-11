@@ -5,11 +5,11 @@ describe "create" do
   subject { mapper.new.call input }
 
   let(:input) do
-    [{ foo: 1, bar: 3 }]
+    [{ foo: 1, bar: 3, abc: { xyz: 1 } }]
   end
 
   let(:output) do
-    [{ foo: 1, bar: 3, baz: [1, 3], qux: 4, quxx: 3 }]
+    [{ foo: 1, bar: 3, baz: [1, 3], qux: 4, quxx: 3, abc: 1 }]
   end
 
   let(:mapper) do
@@ -22,6 +22,12 @@ describe "create" do
         end
 
         create :quxx, from: :bar
+
+        field :abc do
+          create from: :xyz do |xyz|
+            xyz
+          end
+        end
       end
     end
   end
