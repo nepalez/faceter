@@ -32,7 +32,7 @@ module Faceter
     #
     # @api private
     #
-    class PrependNested < AbstractMapper::PairRule
+    class PrependNested < AbstractMapper::Rules::Pair
 
       # @private
       def optimize?

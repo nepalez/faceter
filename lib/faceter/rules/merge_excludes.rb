@@ -10,7 +10,7 @@ module Faceter
     #
     # @api private
     #
-    class MergeExcludes < AbstractMapper::PairRule
+    class MergeExcludes < AbstractMapper::Rules::Pair
 
       # @private
       def optimize?

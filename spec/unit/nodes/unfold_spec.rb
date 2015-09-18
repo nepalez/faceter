@@ -8,11 +8,11 @@ describe Faceter::Nodes::Unfold do
 
   it_behaves_like :mapping_immutable_input do
     let(:input)  { { foo: :FOO } }
-    let(:output) { :FOO          }
+    let(:output) { :FOO }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:input)  { {}  }
+    let(:input)  { {} }
     let(:output) { nil }
   end
 

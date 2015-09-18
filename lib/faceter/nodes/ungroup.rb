@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Ungroup < AbstractMapper::Node
+    class Ungroup < AbstractMapper::AST::Node
 
       attribute :key
       attribute :selector

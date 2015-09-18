@@ -9,11 +9,11 @@ describe "fold" do
       {
         name: "Joe",
         emails: [{ address: "joe@doe.com" }, { address: "joe@doe.org" }]
-      },
+ },
       {
         name: "Jane",
         emails: [{ address: "jane@doe.com" }]
-      }
+ }
     ]
   end
 

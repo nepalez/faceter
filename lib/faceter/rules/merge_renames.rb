@@ -8,7 +8,7 @@ module Faceter
     #
     # @api private
     #
-    class MergeRenames < AbstractMapper::PairRule
+    class MergeRenames < AbstractMapper::Rules::Pair
 
       # @private
       def optimize?

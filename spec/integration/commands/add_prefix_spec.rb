@@ -9,7 +9,7 @@ describe "add_prefix" do
       {
         "id" => 1, "name" => "joe",
         "contacts" => [{ "email" => "joe@example.com" }]
-      }
+ }
     ]
   end
 
@@ -18,7 +18,7 @@ describe "add_prefix" do
       {
         "id" => 1, "user-name" => "joe",
         "user-contacts" => [{ "user-email" => "joe@example.com" }]
-      }
+ }
     ]
   end
 

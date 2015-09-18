@@ -6,14 +6,14 @@ describe "rename" do
 
   let(:input) do
     [
-      { user: { name: "joe",  contacts: [{ email: "joe@doe.com" }]  } },
+      { user: { name: "joe",  contacts: [{ email: "joe@doe.com" }] } },
       { user: { name: "jane", contacts: [{ email: "jane@doe.com" }] } }
     ]
   end
 
   let(:output) do
     [
-      { "user" => { "name" => "joe",  emails: [{ address: "joe@doe.com" }]  } },
+      { "user" => { "name" => "joe",  emails: [{ address: "joe@doe.com" }] } },
       { "user" => { "name" => "jane", emails: [{ address: "jane@doe.com" }] } }
     ]
   end

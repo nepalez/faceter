@@ -8,7 +8,7 @@ module Faceter
     #
     # @api private
     #
-    class List < AbstractMapper::Branch
+    class List < AbstractMapper::AST::Branch
 
       # Builds a transproc function for the node from its child nodes
       #

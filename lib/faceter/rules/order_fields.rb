@@ -6,7 +6,7 @@ module Faceter
 
     # Orders consecutive fields by their names to allow merging them later
     #
-    class OrderFields < AbstractMapper::Rule
+    class OrderFields < AbstractMapper::Rules::Base
 
       # @private
       def optimize?

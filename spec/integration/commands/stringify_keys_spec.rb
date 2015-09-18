@@ -11,17 +11,17 @@ describe "stringify_keys" do
         user:  {
           name: "joe",
           "emails" => [{ address: "joe@doe.com" }]
-        },
+ },
         roles: [{ name: "admin" }]
-      },
+ },
       {
         id: 2,
         user:  {
           name: "jane",
           "emails" => [{ address: "jane@doe.com" }]
-        },
+ },
         roles: [{ name: "admin" }]
-      }
+ }
     ]
   end
 
@@ -32,17 +32,17 @@ describe "stringify_keys" do
         "user" => {
           "name" => "joe",
           "emails" => [{ "address" => "joe@doe.com" }]
-        },
+ },
         "roles" => [{ name: "admin" }]
-      },
+ },
       {
         "id" => 2,
         "user" => {
           "name" => "jane",
           "emails" => [{ "address" => "jane@doe.com" }]
-        },
+ },
         "roles" => [{ name: "admin" }]
-      }
+ }
     ]
   end
 

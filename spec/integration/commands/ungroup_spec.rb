@@ -15,16 +15,16 @@ describe "ungroup" do
               { email: "joe@doe.com", type: "job" },
               { email: "joe@doe.org", type: "job" }
             ]
-          },
+ },
           {
             name: "Ian",
             contacts: [
               { email: "ian@doe.com", type: "job" },
               { email: "ian@doe.org", type: "job" }
             ]
-          }
+ }
         ]
-      }
+ }
     ]
   end
 
@@ -35,13 +35,13 @@ describe "ungroup" do
         role: "admin",
         type: "job",
         contacts: [{ email: "joe@doe.com" }, { email: "joe@doe.org" }]
-      },
+ },
       {
         name: "Ian",
         role: "admin",
         type: "job",
         contacts: [{ email: "ian@doe.com" }, { email: "ian@doe.org" }]
-      }
+ }
     ]
   end
 

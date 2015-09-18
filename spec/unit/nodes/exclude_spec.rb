@@ -12,7 +12,7 @@ describe Faceter::Nodes::Exclude do
     let(:options) { { only: [:foo, :bar] } }
 
     let(:input)   { { foo: :FOO, bar: :BAR, baz: :BAZ } }
-    let(:output)  { { baz: :BAZ }                       }
+    let(:output)  { { baz: :BAZ } }
   end
 
 end # describe Faceter::Nodes::Exclude

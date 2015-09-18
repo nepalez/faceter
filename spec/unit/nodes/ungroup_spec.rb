@@ -80,7 +80,7 @@ describe Faceter::Nodes::Ungroup do
         {
           qux: :QUX, foo: :QUX,
           baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }]
-        }
+ }
       ]
     end
 

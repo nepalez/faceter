@@ -11,9 +11,9 @@ describe "symbolize_keys" do
         "user" => {
           "name" => "joe",
           emails: [{ "address" => "joe@doe.com" }]
-        },
+ },
         "roles" => [{ "name" => "admin" }]
-      }
+ }
     ]
   end
 
@@ -24,9 +24,9 @@ describe "symbolize_keys" do
         user:  {
           name: "joe",
           emails: [{ address: "joe@doe.com" }]
-        },
+ },
         roles: [{ "name" => "admin" }]
-      }
+ }
     ]
   end
 

@@ -10,13 +10,13 @@ module Faceter::Nodes # namespace for constants
     let(:input) { [left, right] }
 
     it_behaves_like :skipping_nodes do
-      let(:left)  { Exclude.new(selector: foo)  }
+      let(:left)  { Exclude.new(selector: foo) }
       let(:right) { AddPrefix.new(prefix: :foo) }
     end
 
     it_behaves_like :skipping_nodes do
       let(:left)  { AddPrefix.new(prefix: :foo) }
-      let(:right) { Exclude.new(selector: foo)  }
+      let(:right) { Exclude.new(selector: foo) }
     end
 
     it_behaves_like :optimizing_nodes do

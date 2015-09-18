@@ -15,12 +15,12 @@ describe "remove_prefix" do
               {
                 :"contact.address" => "joe@doe.com",
                 "contact.type" => "job"
-              }
+ }
             ],
             user_skype: "joe"
-          }
+ }
         ]
-      }
+ }
     ]
   end
 
@@ -35,12 +35,12 @@ describe "remove_prefix" do
               {
                 address: "joe@doe.com",
                 "type" => "job"
-              }
+ }
             ],
             user_skype: "joe"
-          }
+ }
         ]
-      }
+ }
     ]
   end
 

@@ -9,7 +9,7 @@ describe Faceter::Nodes::Rename do
   it_behaves_like :mapping_immutable_input do
     let(:attributes) { { keys: { foo: "bar", baz: "qux" } } }
 
-    let(:input)  { { foo: :FOO, baz: :BAZ }         }
+    let(:input)  { { foo: :FOO, baz: :BAZ } }
     let(:output) { { "bar" => :FOO, "qux" => :BAZ } }
   end
 

@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class StringifyKeys < AbstractMapper::Node
+    class StringifyKeys < AbstractMapper::AST::Node
 
       attribute :nested, default: true
 

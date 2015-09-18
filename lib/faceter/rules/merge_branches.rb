@@ -10,11 +10,11 @@ module Faceter
     #
     # @api private
     #
-    class MergeBranches < AbstractMapper::PairRule
+    class MergeBranches < AbstractMapper::Rules::Pair
 
       # @private
       def optimize?
-        left.is_a?(AbstractMapper::Branch) &&
+        left.is_a?(AbstractMapper::AST::Branch) &&
           right.class.equal?(__left_node__) &&
           right.attributes.eql?(__left_attributes__)
       end

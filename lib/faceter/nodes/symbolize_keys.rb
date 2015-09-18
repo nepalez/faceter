@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class SymbolizeKeys < AbstractMapper::Node
+    class SymbolizeKeys < AbstractMapper::AST::Node
 
       attribute :nested, default: true
 

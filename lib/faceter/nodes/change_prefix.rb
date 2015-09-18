@@ -11,7 +11,7 @@ module Faceter
     #
     # @api private
     #
-    class ChangePrefix < AbstractMapper::Node
+    class ChangePrefix < AbstractMapper::AST::Node
 
       attribute :prefix
       attribute :separator, default: "_"

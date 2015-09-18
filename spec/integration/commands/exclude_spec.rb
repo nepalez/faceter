@@ -11,23 +11,23 @@ describe "exclude" do
           id: 1,
           name: "joe",
           contacts: [{ email: "joe@doe.com", type: "job" }]
-        },
+ },
         role: "admin"
-      },
+ },
       {
         user: {
           id: 2,
           name: "jane",
           contacts: [{ email: "jane@doe.com", type: "job" }]
-        },
+ },
         role: "admin"
-      }
+ }
     ]
   end
 
   let(:output) do
     [
-      { user: { name: "joe",  contacts: [{ email: "joe@doe.com" }]  } },
+      { user: { name: "joe",  contacts: [{ email: "joe@doe.com" }] } },
       { user: { name: "jane", contacts: [{ email: "jane@doe.com" }] } }
     ]
   end

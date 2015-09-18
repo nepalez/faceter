@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Create < AbstractMapper::Node
+    class Create < AbstractMapper::AST::Node
 
       attribute :name
       attribute :keys

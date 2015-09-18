@@ -7,12 +7,12 @@ describe Faceter::Nodes::Fold do
   it_behaves_like :creating_immutable_node
 
   it_behaves_like :mapping_immutable_input do
-    let(:input)  { :FOO          }
+    let(:input)  { :FOO }
     let(:output) { { foo: :FOO } }
   end
 
   it_behaves_like :mapping_immutable_input do
-    let(:input)  { nil          }
+    let(:input)  { nil }
     let(:output) { { foo: nil } }
   end
 

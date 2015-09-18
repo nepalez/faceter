@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Field < AbstractMapper::Branch
+    class Field < AbstractMapper::AST::Branch
 
       attribute :key
 

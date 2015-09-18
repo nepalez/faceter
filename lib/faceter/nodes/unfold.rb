@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Unfold < AbstractMapper::Node
+    class Unfold < AbstractMapper::AST::Node
 
       attribute :key
 

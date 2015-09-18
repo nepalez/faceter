@@ -3,11 +3,11 @@
 describe Faceter::Nodes::List do
 
   before do
-    class Faceter::Test::Foo < AbstractMapper::Node
+    class Faceter::Test::Foo < AbstractMapper::AST::Node
       define_method(:transproc) { Faceter::Functions[:rename_keys, foo: :baz] }
     end
 
-    class Faceter::Test::Bar < AbstractMapper::Node
+    class Faceter::Test::Bar < AbstractMapper::AST::Node
       define_method(:transproc) { Faceter::Functions[:rename_keys, bar: :qux] }
     end
   end

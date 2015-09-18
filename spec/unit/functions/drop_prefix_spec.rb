@@ -6,14 +6,14 @@ describe Faceter::Functions, ".drop_prefix" do
     let(:arguments) { [:drop_prefix, "foo", "."] }
 
     let(:input)  { "foo.bar" }
-    let(:output) { "bar"     }
+    let(:output) { "bar" }
   end
 
   it_behaves_like :transforming_immutable_data do
     let(:arguments) { [:drop_prefix, "foo", "."] }
 
     let(:input)  { "foo." }
-    let(:output) { ""     }
+    let(:output) { "" }
   end
 
   it_behaves_like :transforming_immutable_data do
@@ -26,7 +26,7 @@ describe Faceter::Functions, ".drop_prefix" do
   it_behaves_like :transforming_immutable_data do
     let(:arguments) { [:drop_prefix, "foo", "."] }
 
-    let(:input)  { :foo_bar  }
+    let(:input)  { :foo_bar }
     let(:output) { "foo_bar" }
   end
 

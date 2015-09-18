@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Wrap < AbstractMapper::Node
+    class Wrap < AbstractMapper::AST::Node
 
       attribute :key
       attribute :selector

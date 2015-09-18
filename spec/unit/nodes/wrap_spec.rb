@@ -12,7 +12,7 @@ describe Faceter::Nodes::Wrap do
   it_behaves_like :mapping_immutable_input do
     let(:key) { :bar }
 
-    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ }          }
+    let(:input)  { { foo: :FOO, bar: :BAR, baz: :BAZ } }
     let(:output) { { bar: { foo: :FOO, bar: :BAR }, baz: :BAZ } }
   end
 
@@ -26,7 +26,7 @@ describe Faceter::Nodes::Wrap do
   it_behaves_like :mapping_immutable_input do
     let(:key) { :bar }
 
-    let(:input)  { { foo: :FOO, bar: { qux: :QUX }, baz: :BAZ }          }
+    let(:input)  { { foo: :FOO, bar: { qux: :QUX }, baz: :BAZ } }
     let(:output) { { bar: { foo: :FOO, bar: { qux: :QUX } }, baz: :BAZ } }
   end
 

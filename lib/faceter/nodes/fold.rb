@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Fold < AbstractMapper::Node
+    class Fold < AbstractMapper::AST::Node
 
       attribute :key
 

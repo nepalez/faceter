@@ -9,11 +9,11 @@ describe "unwrap" do
       {
         user: { id: 1, name: "joe" },
         contacts: [{ email: { address: "joe@doe.com", type: "job" } }]
-      },
+ },
       {
         user: { id: 2, name: "jane" },
         contacts: [{ email: { address: "jane@doe.com", type: "job" } }]
-      }
+ }
     ]
   end
 
@@ -22,11 +22,11 @@ describe "unwrap" do
       {
         id: 1, name: "joe",
         contacts: [{ email: { address: "joe@doe.com" }, type: "job" }]
-      },
+ },
       {
         id: 2, name: "jane",
         contacts: [{ email: { address: "jane@doe.com" }, type: "job" }]
-      }
+ }
     ]
   end
 

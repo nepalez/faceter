@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Exclude < AbstractMapper::Node
+    class Exclude < AbstractMapper::AST::Node
 
       attribute :selector
 

@@ -24,7 +24,7 @@ describe Faceter::Nodes::Group do
         {
           qux: :QUX,
           baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }]
-        }
+ }
       ]
     end
   end
@@ -44,7 +44,7 @@ describe Faceter::Nodes::Group do
         {
           qux: :QUX,
           baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }]
-        }
+ }
       ]
     end
   end
@@ -64,7 +64,7 @@ describe Faceter::Nodes::Group do
         {
           qux: :QUX,
           baz: [{ foo: :FOO, bar: :FOO }, { foo: :BAR, bar: :BAR }]
-        }
+ }
       ]
     end
   end
@@ -74,7 +74,7 @@ describe Faceter::Nodes::Group do
 
     let(:input) do
       [
-        { foo: :FOO, bar: :FOO, baz: [{ baz: :BAZ  }], qux: :QUX },
+        { foo: :FOO, bar: :FOO, baz: [{ baz: :BAZ }], qux: :QUX },
         { foo: :BAR, bar: :BAR, baz: [{ baz: :BAZZ }], qux: :QUX }
       ]
     end
@@ -87,7 +87,7 @@ describe Faceter::Nodes::Group do
             { foo: :FOO, bar: :FOO, baz: :BAZ },
             { foo: :BAR, bar: :BAR, baz: :BAZZ }
           ]
-        }
+ }
       ]
     end
   end
@@ -112,7 +112,7 @@ describe Faceter::Nodes::Group do
             { baz: :BAZ, foo: :BAR },
             { baz: :QUX, foo: :BAR }
           ]
-        }
+ }
       ]
     end
   end
@@ -132,7 +132,7 @@ describe Faceter::Nodes::Group do
         {
           qux: :QUX,
           baz: [{ foo: :FOO, baz: :FOO }, { foo: :BAR, baz: :BAR }]
-        }
+ }
       ]
     end
   end
@@ -142,7 +142,7 @@ describe Faceter::Nodes::Group do
 
     let(:input) do
       [
-        { baz: [{ bar: :FOO }, { baz: :FOO  }], qux: :QUX },
+        { baz: [{ bar: :FOO }, { baz: :FOO }], qux: :QUX },
         { baz: [{ bar: :BAR }, { baz: :BAR }],  qux: :QUX }
       ]
     end
@@ -152,10 +152,10 @@ describe Faceter::Nodes::Group do
         {
           qux: :QUX,
           baz: [
-            { baz: [{ bar: :FOO }, { baz: :FOO  }] },
+            { baz: [{ bar: :FOO }, { baz: :FOO }] },
             { baz: [{ bar: :BAR }, { baz: :BAR }] }
           ]
-        }
+ }
       ]
     end
   end

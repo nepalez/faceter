@@ -74,7 +74,7 @@ describe Faceter::Functions, ".group" do
 
     let(:input) do
       [
-        { foo: :FOO, bar: :FOO, baz: [{ baz: :BAZ  }], qux: :QUX },
+        { foo: :FOO, bar: :FOO, baz: [{ baz: :BAZ }], qux: :QUX },
         { foo: :BAR, bar: :BAR, baz: [{ baz: :BAZZ }], qux: :QUX }
       ]
     end
@@ -87,7 +87,7 @@ describe Faceter::Functions, ".group" do
             { foo: :FOO, bar: :FOO, baz: :BAZ },
             { foo: :BAR, bar: :BAR, baz: :BAZZ }
           ]
-        }
+ }
       ]
     end
   end
@@ -113,7 +113,7 @@ describe Faceter::Functions, ".group" do
             { baz: :BAZ, foo: :BAR },
             { baz: :QUX, foo: :BAR }
           ]
-        }
+ }
       ]
     end
   end
@@ -142,7 +142,7 @@ describe Faceter::Functions, ".group" do
 
     let(:input) do
       [
-        { foo: [{ bar: :FOO }, { baz: :FOO  }], qux: :QUX },
+        { foo: [{ bar: :FOO }, { baz: :FOO }], qux: :QUX },
         { foo: [{ bar: :BAR }, { baz: :BAR }],  qux: :QUX }
       ]
     end
@@ -152,10 +152,10 @@ describe Faceter::Functions, ".group" do
         {
           qux: :QUX,
           foo: [
-            { foo: [{ bar: :FOO }, { baz: :FOO  }] },
+            { foo: [{ bar: :FOO }, { baz: :FOO }] },
             { foo: [{ bar: :BAR }, { baz: :BAR }] }
           ]
-        }
+ }
       ]
     end
   end

@@ -6,7 +6,7 @@ module Faceter
     #
     # @api private
     #
-    class Rename < AbstractMapper::Node
+    class Rename < AbstractMapper::AST::Node
 
       attribute :keys, default: {}
 
