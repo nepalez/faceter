@@ -1,3 +1,12 @@
+## version 0.1.0 2015-09-18
+
+### Change
+
+* Switched to 'abstract_mapper' API v0.1.0 (nepalez)
+  with reference to #2 (martinciu)
+
+[Compare v0.0.2...v0.1.0](https://github.com/nepalez/faceter/compare/v0.0.2...v0.1.0)
+
 ## version 0.0.2 2015-09-18
 
 ### Bugs Fixed
