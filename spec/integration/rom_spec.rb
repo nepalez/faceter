@@ -2,10 +2,6 @@ require "rom"
 require "rom/memory"
 
 describe "ROM integration" do
-
-  let(:setup) { ROM.setup :memory }
-  let(:rom)   { ROM.finalize.env  }
-
   before do
     class UserMapper < Faceter::Mapper
       group :email, to: :emails
@@ -17,6 +13,9 @@ describe "ROM integration" do
       end
     end
 
+    # Set ROM environment
+    ROM.use :auto_registration
+    setup = ROM.setup :memory
     setup.relation(:users)
 
     setup.mappers do
@@ -26,14 +25,17 @@ describe "ROM integration" do
     users = setup.default.dataset(:users)
     users.insert(id: 1, name: "Joe", email: "joe@doe.com")
     users.insert(id: 1, name: "Joe", email: "joe@doe.org")
+
+    ROM.finalize
   end
 
+  let(:rom)   { ROM.env }
+  let(:users) { rom.relation(:users) }
+
   it "works" do
-    expect(rom.relation(:users).as(:mapped).to_a).to eql [
-      { id: 1, name: "Joe", emails: ["joe@doe.com", "joe@doe.org"] }
-    ]
+    expect(users.as(:mapped).to_a)
+      .to eql [{ id: 1, name: "Joe", emails: ["joe@doe.com", "joe@doe.org"] }]
   end
 
   after { Object.send :remove_const, :UserMapper }
-
 end # describe "ROM integration"
